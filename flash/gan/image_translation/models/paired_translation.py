@@ -25,6 +25,10 @@ PAIRED_IMG_TRANSLATION_BACKBONES(fn=load_pix2pix, name="pix2pix", namespace="gan
 
 
 class PairedImageTranslation(GenerationTask):
+    """
+    In this translation task, given a real and conditioned image generator will be trained
+    to translate the conditioned image into realistic looking fake image.
+    """
     backbones: FlashRegistry = PAIRED_IMG_TRANSLATION_BACKBONES
 
     def __init__(
