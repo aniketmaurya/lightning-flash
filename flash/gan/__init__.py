@@ -1,0 +1,1 @@
+from .image_translation.models.paired_translation import PairedImageTranslation
