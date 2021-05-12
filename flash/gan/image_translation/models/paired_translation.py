@@ -28,15 +28,15 @@ class PairedImageTranslation(GenerationTask):
     backbones: FlashRegistry = PAIRED_IMG_TRANSLATION_BACKBONES
 
     def __init__(
-            self,
-            generator: Union[nn.Module, str] = Generator,
-            discriminator: Union[nn.Module, str] = PatchGAN,
-            loss_fn: Union[Callable, List[Callable]] = F.cross_entropy,
-            optimizer: Type[torch.optim.Optimizer] = torch.optim.SGD,
-            gen_kwargs=None,
-            disc_kwargs=None,
-            *args,
-            **kwargs
+        self,
+        generator: Union[nn.Module, str] = Generator,
+        discriminator: Union[nn.Module, str] = PatchGAN,
+        loss_fn: Union[Callable, List[Callable]] = F.cross_entropy,
+        optimizer: Type[torch.optim.Optimizer] = torch.optim.SGD,
+        gen_kwargs=None,
+        disc_kwargs=None,
+        *args,
+        **kwargs
     ) -> None:
         super().__init__(*args, **kwargs)
         self.save_hyperparameters()
