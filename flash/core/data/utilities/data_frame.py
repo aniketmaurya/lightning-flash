@@ -15,6 +15,7 @@ import os
 from functools import partial
 from typing import Any, Callable, List, Optional, Union
 
+import numba
 import pandas as pd
 from pytorch_lightning.utilities import rank_zero_warn
 
@@ -63,6 +64,7 @@ def _resolve_file(
     return resolver(root, row[input_key])
 
 
+@numba.jit
 def default_resolver(root: Optional[PATH_TYPE], file_id: Any) -> PATH_TYPE:
     file = os.path.join(root, file_id) if root is not None else file_id
     if os.path.isfile(file):
@@ -73,6 +75,7 @@ def default_resolver(root: Optional[PATH_TYPE], file_id: Any) -> PATH_TYPE:
     )
 
 
+@numba.jit
 def resolve_files(
     data_frame: pd.DataFrame, key: str, root: PATH_TYPE, resolver: Callable[[Optional[PATH_TYPE], Any], PATH_TYPE]
 ) -> List[PATH_TYPE]:
