@@ -32,7 +32,7 @@ jobs:
         python-version: 3.8
 
     - name: Cache pip
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ~/.cache/pip  # this is specific for Ubuntu
         key: pip-${{ hashFiles('requirements/*.txt') }}
@@ -47,7 +47,7 @@ jobs:
         pip list
 
     - name: Cache transformers
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ${{ env.TRANSFORMERS_CACHE }}
         key: cache-transformers
@@ -74,7 +74,7 @@ jobs:
         python-version: 3.8
 
     - name: Cache pip
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ~/.cache/pip  # this is specific for Ubuntu
         key: pip-${{ hashFiles('requirements/*.txt') }}
@@ -89,7 +89,7 @@ jobs:
         pip list
 
     - name: Cache transformers
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ${{ env.TRANSFORMERS_CACHE }}
         key: cache-transformers
