@@ -14,7 +14,7 @@ jobs:
       azure-dir: ""
 
   check-package:
-    uses: Lightning-AI/utilities/.github/workflows/check-package.yml@v0.9.0
+    uses: Lightning-AI/utilities/.github/workflows/check-package.yml@v0.15.2
     with:
       actions-ref: v0.8.0
       artifact-name: dist-packages-${{ github.sha }}
