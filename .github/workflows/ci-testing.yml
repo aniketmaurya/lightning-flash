@@ -97,7 +97,7 @@ jobs:
       id: pip-cache
       run: echo "dir=$(pip cache dir)" >> $GITHUB_OUTPUT
     - name: Restore pip cache
-      uses: actions/cache/restore@v3
+      uses: actions/cache/restore@v6
       id: restore-cache
       with:
         path: ${{ steps.pip-cache.outputs.dir }}
@@ -116,7 +116,7 @@ jobs:
         pip list
 
     - name: Restore HF cache
-      uses: actions/cache/restore@v3
+      uses: actions/cache/restore@v6
       with:
         path: ${{ env.TRANSFORMERS_CACHE }}
         key: cache-transformers
@@ -138,7 +138,7 @@ jobs:
 
     - name: Save pip cache
       if: github.ref == 'refs/heads/master'
-      uses: actions/cache/save@v3
+      uses: actions/cache/save@v6
       with:
         path: ${{ steps.pip-cache.outputs.dir }}
         key: pip-dependencies
@@ -155,7 +155,7 @@ jobs:
 
     - name: Save HF cache
       if: github.ref == 'refs/heads/master'
-      uses: actions/cache/save@v3
+      uses: actions/cache/save@v6
       with:
         path: ${{ env.TRANSFORMERS_CACHE }}
         key: cache-transformers
